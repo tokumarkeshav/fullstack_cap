@@ -1,0 +1,37 @@
+{
+  "name": "cap_proj",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@cap-js/hana": "^1",
+    "@sap/cds": "^8",
+    "express": "^4",
+    "hdb": "^0.19.11"
+  },
+  "devDependencies": {
+    "@cap-js/cds-types": "^0.7.0",
+    "@cap-js/sqlite": "^1",
+    "@sap/cds-dk": "^8"
+  },
+  "scripts": {
+    "start": "cds-serve"
+  },
+  "cds": {
+                "build": { 
+			"tasks": [ { 
+					"for": "hana", "dest": "../db" 
+				   },
+                                   { 
+					"for": "node-cf" 
+				    } ] 
+			  },
+                 "requires": { 
+			 "db": { 
+					"kind": "hana-cloud" 
+				} 
+			     }
+                  }
+}
